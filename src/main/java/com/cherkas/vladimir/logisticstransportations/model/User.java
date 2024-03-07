@@ -30,4 +30,5 @@ public class User {
     private String role;
 
     //Дописать лист или сет заказов конкретного пользователя
+    @OneToMany(mappedBy = user)
 }
