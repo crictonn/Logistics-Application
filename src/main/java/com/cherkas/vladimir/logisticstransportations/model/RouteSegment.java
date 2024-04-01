@@ -19,4 +19,7 @@ public class RouteSegment {
 
     @Column(name = "transport_id")
     private Long transportID;
+
+    @Column(name = "order_id")
+    private Long orderID;
 }
