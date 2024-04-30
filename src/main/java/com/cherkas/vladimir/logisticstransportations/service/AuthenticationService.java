@@ -1,5 +1,8 @@
-package com.cherkas.vladimir.logisticstransportations.controller.request;
+package com.cherkas.vladimir.logisticstransportations.service;
 
+import com.cherkas.vladimir.logisticstransportations.controller.request.AuthenticationRequest;
+import com.cherkas.vladimir.logisticstransportations.controller.request.AuthenticationResponse;
+import com.cherkas.vladimir.logisticstransportations.controller.request.RegisterRequest;
 import com.cherkas.vladimir.logisticstransportations.jwt.JwtCore;
 import com.cherkas.vladimir.logisticstransportations.model.enums.Roles;
 import com.cherkas.vladimir.logisticstransportations.model.User;
@@ -17,7 +20,6 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtCore jwtCore;
     private final AuthenticationManager authenticationManager;
-
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .first_name(request.getFirstName())

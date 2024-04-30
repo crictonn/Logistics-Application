@@ -1,7 +1,10 @@
 package com.cherkas.vladimir.logisticstransportations.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -9,6 +12,9 @@ import java.util.ArrayList;
 @Entity
 @Table(name = "orders")
 @Data
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
