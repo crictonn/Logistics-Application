@@ -1,11 +1,17 @@
 package com.cherkas.vladimir.logisticstransportations.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "route_segments")
 @Data
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 public class RouteSegment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

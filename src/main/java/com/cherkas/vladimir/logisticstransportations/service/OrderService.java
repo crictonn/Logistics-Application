@@ -9,12 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class OrderService {
     private final OrderRepository orderRepository;
     private final CargoService cargoService;
+    private final RouteSegmentService routeSegmentService;
     private final UserRepository userRepository;
 
     public ResponseEntity<?> createOrder(OrderRequest request) {
@@ -30,8 +32,15 @@ public class OrderService {
                 .userID(userRepository.findUserByUsername(request.getUsername()).get().getId())
                 .build();
         orderRepository.save(order);
+        if(!request.getAdditionalPoint1().equals("") || !request.getAdditionalPoint2().equals("")){
+            routeSegmentService.parseRouteSegments(request);
+        }
+        cargoService.saveCargo(request);
 
         return ResponseEntity.ok("Order added");
+    }
 
+    public List<Order> getAllOrders(String username){
+        return orderRepository.findOrderByUserID(userRepository.findUserByUsername(username).get().getId());
     }
 }

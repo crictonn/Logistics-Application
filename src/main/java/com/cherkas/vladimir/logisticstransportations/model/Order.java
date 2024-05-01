@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -52,9 +53,9 @@ public class Order {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id")
-    private ArrayList<Cargo> cargos = new ArrayList<>();
+    private List<Cargo> cargos = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id")
-    private ArrayList<RouteSegment> routeSegments = new ArrayList<>();
+    private List<RouteSegment> routeSegments = new ArrayList<>();
 }

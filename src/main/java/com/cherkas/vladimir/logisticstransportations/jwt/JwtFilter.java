@@ -1,6 +1,5 @@
 package com.cherkas.vladimir.logisticstransportations.jwt;
 
-import io.jsonwebtoken.Jwts;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

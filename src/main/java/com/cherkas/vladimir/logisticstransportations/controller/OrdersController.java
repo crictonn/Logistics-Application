@@ -14,11 +14,11 @@ public class OrdersController {
     private final OrderService orderService;
 
     @GetMapping("/orders")
-    public ResponseEntity<?> getOrders(){
-        return ResponseEntity.ok("Все хорошо");
+    public ResponseEntity<?> getOrders(@RequestHeader("username")String username){
+        return ResponseEntity.ok(orderService.getAllOrders(username));
     }
 
-    @PostMapping("/orders")
+    @PostMapping("/addOrder")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest request){
         return orderService.createOrder(request);
     }

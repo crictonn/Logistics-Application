@@ -1,11 +1,14 @@
 package com.cherkas.vladimir.logisticstransportations.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "cargos")
 @Data
+@Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

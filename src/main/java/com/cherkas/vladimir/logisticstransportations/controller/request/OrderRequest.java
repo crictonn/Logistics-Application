@@ -15,10 +15,10 @@ public class OrderRequest {
     private String destinationPoint;
     private String additionalPoint1;
     private String additionalPoint2;
-    private Long length;
-    private Long width;
-    private Long height;
-    private Long weight;
+    private Double length;
+    private Double width;
+    private Double height;
+    private Double weight;
     private String info;
     private String name;
     private Boolean fragile;
