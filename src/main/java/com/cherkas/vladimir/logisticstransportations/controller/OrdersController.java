@@ -1,10 +1,13 @@
 package com.cherkas.vladimir.logisticstransportations.controller;
 
 import com.cherkas.vladimir.logisticstransportations.controller.request.OrderRequest;
+import com.cherkas.vladimir.logisticstransportations.model.Order;
 import com.cherkas.vladimir.logisticstransportations.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/authenticated")
@@ -16,6 +19,12 @@ public class OrdersController {
     @GetMapping("/orders")
     public ResponseEntity<?> getOrders(@RequestHeader("username")String username){
         return ResponseEntity.ok(orderService.getAllOrders(username));
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllOrders(){
+        List<Order> test = orderService.getAllOrders();
+        return ResponseEntity.ok(test);
     }
 
     @PostMapping("/addOrder")

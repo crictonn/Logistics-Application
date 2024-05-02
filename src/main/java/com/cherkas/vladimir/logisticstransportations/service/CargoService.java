@@ -20,6 +20,8 @@ public class CargoService {
                 .width(request.getWidth())
                 .weight(request.getWeight())
                 .additionalInfo(request.getInfo())
+                .fragile(request.getFragile())
+                .dangerous(request.getDangerous())
                 .orderID(orderRepository.findOrderByOrderName(request.getName()).get().getId())
                 .build();
         cargoRepository.save(cargo);

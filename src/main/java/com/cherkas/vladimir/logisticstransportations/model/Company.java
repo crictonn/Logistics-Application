@@ -1,13 +1,20 @@
 package com.cherkas.vladimir.logisticstransportations.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "companies")
 @Data
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,13 +34,13 @@ public class Company {
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
-    private ArrayList<User> employees = new ArrayList<>();
+    private List<User> employees = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
-    private ArrayList<Transport> availableTransports = new ArrayList<>();
+    private List<Transport> availableTransports = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
-    private ArrayList<Order> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 }

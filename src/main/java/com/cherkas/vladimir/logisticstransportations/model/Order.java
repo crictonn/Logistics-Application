@@ -45,6 +45,12 @@ public class Order {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "fragile")
+    private Boolean fragile;
+
+    @Column(name = "dangerous")
+    private Boolean dangerous;
+
     @Column(name = "user_id")
     private Long userID;
 

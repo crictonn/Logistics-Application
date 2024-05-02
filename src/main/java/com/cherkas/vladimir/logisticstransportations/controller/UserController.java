@@ -13,7 +13,12 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/user")
-    public ResponseEntity<?>getUserData(@RequestHeader("username") String username){
+    public ResponseEntity<?> getUserData(@RequestHeader("username") String username){
         return ResponseEntity.ok(userService.loadUserByUsername(username));
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllUsers(){
+        return ResponseEntity.ok(userService.getAll());
     }
 }

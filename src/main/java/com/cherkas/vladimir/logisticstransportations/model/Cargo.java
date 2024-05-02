@@ -26,6 +26,12 @@ public class Cargo {
     @Column(name = "weight")
     private Double weight;
 
+    @Column(name = "fragile")
+    private Boolean fragile;
+
+    @Column(name = "dangerous")
+    private Boolean dangerous;
+
     @Column(name = "additional_info", length = 100)
     private String additionalInfo;
 
