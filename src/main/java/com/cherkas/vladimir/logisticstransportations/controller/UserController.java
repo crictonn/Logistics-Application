@@ -1,5 +1,6 @@
 package com.cherkas.vladimir.logisticstransportations.controller;
 
+import com.cherkas.vladimir.logisticstransportations.controller.request.RegisterRequest;
 import com.cherkas.vladimir.logisticstransportations.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,5 +21,10 @@ public class UserController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllUsers(){
         return ResponseEntity.ok(userService.getAll());
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<?> changeUserDetails(@RequestBody RegisterRequest request){
+        return userService.changeUserDetails(request);
     }
 }

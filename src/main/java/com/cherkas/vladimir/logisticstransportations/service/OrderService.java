@@ -6,6 +6,7 @@ import com.cherkas.vladimir.logisticstransportations.repository.CompanyRepositor
 import com.cherkas.vladimir.logisticstransportations.repository.OrderRepository;
 import com.cherkas.vladimir.logisticstransportations.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +53,8 @@ public class OrderService {
 
     public List<Order> getAllOrders(String username){
         if(userRepository.findUserByUsername(username).get().getCompanyID()==null) {
-            return orderRepository.findOrderByUserID(userRepository.findUserByUsername(username).get().getId());
+            List<Order> test = orderRepository.findOrdersByCompanyID(userRepository.findUserByUsername(username).get().getCompanyID());
+            return test;
         }else{
             Long compID = userRepository.findUserByUsername(username).get().getCompanyID();
             return orderRepository.findOrdersByCompanyID(compID);
