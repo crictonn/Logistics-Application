@@ -26,4 +26,8 @@ public class CargoService {
                 .build();
         cargoRepository.save(cargo);
     }
+
+    public Cargo getCargo(Long id){
+        return cargoRepository.findCargoById(id).orElseThrow();
+    }
 }

@@ -57,6 +57,9 @@ public class Order {
     @Column(name = "company_id")
     private Long companyID;
 
+    @Column(name = "profit")
+    private Double profit;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id")
     private List<Cargo> cargos = new ArrayList<>();

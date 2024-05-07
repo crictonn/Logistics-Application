@@ -31,4 +31,14 @@ public class OrdersController {
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest request){
         return orderService.createOrder(request);
     }
+
+    @GetMapping("/optimal")
+    public ResponseEntity<?> getOptimalOrders(@RequestHeader("username")String username){
+        return ResponseEntity.ok(orderService.getOptimalOrders(username));
+    }
+
+    @PostMapping("order/change")
+    public ResponseEntity<?> changeStatusToAccepted(@RequestHeader Long id, @RequestHeader String username){
+        return ResponseEntity.ok(orderService.changeStatus(id, username));
+    }
 }
